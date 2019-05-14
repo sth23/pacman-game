@@ -28,19 +28,19 @@ class Pacman(Sprite):
         PacmanGame.listenKeyEvent("keydown", "up arrow", self.goUp)
         PacmanGame.listenKeyEvent("keydown", "down arrow", self.goDown)
         
-    def goRight(self):
+    def goRight(self, event):
         self.vx = self.speed
         self.vy = 0
         
-    def goLeft(self):
+    def goLeft(self, event):
         self.vx = -self.speed
         self.vy = 0
     
-    def goUp(self):
+    def goUp(self, event):
         self.vy = -self.speed
         self.vx = 0
         
-    def goDown(self):
+    def goDown(self, event):
         self.vy = self.speed
         self.vx = 0
         
