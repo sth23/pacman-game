@@ -20,6 +20,29 @@ class Pacman(Sprite):
         self.vx = 0
         self.vy = 0
         self.fxcenter = self.fycenter = 0
+        self.speed = 1
+        
+        # Setup Player Controls
+        PacmanGame.listenKeyEvent("keydown", "right arrow", self.goRight)
+        PacmanGame.listenKeyEvent("keydown", "left arrow", self.goLeft)
+        PacmanGame.listenKeyEvent("keydown", "up arrow", self.goUp)
+        PacmanGame.listenKeyEvent("keydown", "down arrow", self.goDown)
+        
+    def goRight(self):
+        self.vx = self.speed
+        self.vy = 0
+        
+    def goLeft(self):
+        self.vx = -self.speed
+        self.vy = 0
+    
+    def goUp(self):
+        self.vy = -self.speed
+        self.vx = 0
+        
+    def goDown(self):
+        self.vy = self.speed
+        self.vx = 0
         
     def step(self):
         self.x += self.vy
