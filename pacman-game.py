@@ -51,7 +51,7 @@ class Pacman(Sprite):
 class PacmanGame(App):
     def __init__(self):
         super().__init__()
-        player1 = Pacman((self.width / 2, self.height * 2 / 3))
+        self.player1 = Pacman((self.width / 2, self.height * 2 / 3))
         
     def step(self):
         self.player1.step()
