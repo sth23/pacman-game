@@ -20,7 +20,7 @@ class Pacman(Sprite):
         self.vx = 0
         self.vy = 0
         self.fxcenter = self.fycenter = 0
-        self.speed = 1
+        self.speed = 5
         
         # Setup Player Controls
         PacmanGame.listenKeyEvent("keydown", "right arrow", self.goRight)
