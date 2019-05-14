@@ -16,7 +16,7 @@ class Pacman(Sprite):
     #mouth_open
     
     def __init__(self, position):
-        super().__init__(mouth_closed, position)
+        super().__init__(Pacman.mouth_closed, position)
         self.vx = 0
         self.vy = 0
         self.fxcenter = self.fycenter = 0
