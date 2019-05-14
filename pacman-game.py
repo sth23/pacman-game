@@ -14,8 +14,8 @@ class Pacman(Sprite):
     mouth_closed = CircleAsset(20, yellow)
     #mouth_open
     
-    def __init__(self, width, height):
-        super().__init__(mouth_closed, (width / 2, height * 2 / 3))
+    def __init__(self, position):
+        super().__init__(mouth_closed, position)
         self.vx = 0
         self.vy = 0
         self.fxcenter = self.fycenter = 0
@@ -24,3 +24,10 @@ class Pacman(Sprite):
         self.x += self.vy
         self.y += self.vy
         
+class PacmanGame(App):
+    def __init__(self):
+        super().__init__()
+        player1 = Pacman((self.width / 2, self.height * 2 / 3))
+        
+    def step(self):
+        player1.step()
