@@ -9,6 +9,10 @@ from ggame import App, RectangleAsset, CircleAsset, LineAsset, ImageAsset, Frame
 import math
 import random
 
+class Wall(Sprite):
+    def __init__(self, asset, position):
+        super().__init__(asset, position)
+
 class Pacman(Sprite):
     yellow = Color(0xffff00, 1.0)
     noline = LineStyle(0, yellow)
