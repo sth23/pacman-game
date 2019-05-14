@@ -45,7 +45,7 @@ class Pacman(Sprite):
         self.vx = 0
         
     def step(self):
-        self.x += self.vy
+        self.x += self.vx
         self.y += self.vy
         
 class PacmanGame(App):
