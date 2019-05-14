@@ -11,7 +11,8 @@ import random
 
 class Pacman(Sprite):
     yellow = Color(0xffff00, 1.0)
-    mouth_closed = CircleAsset(20, yellow)
+    noline = LineStyle(0, yellow)
+    mouth_closed = CircleAsset(20, noline, yellow)
     #mouth_open
     
     def __init__(self, position):
