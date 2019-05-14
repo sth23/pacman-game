@@ -32,3 +32,6 @@ class PacmanGame(App):
         
     def step(self):
         player1.step()
+        
+myapp = PacmanGame()
+myapp.run()
