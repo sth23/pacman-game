@@ -62,6 +62,7 @@ class PacmanGame(App):
         topwall = Wall(RectangleAsset(self.width, 10, self.noline, self.black), (0, 0))
         rightwall = Wall(RectangleAsset(10, self.height, self.noline, self.black), (self.width - 10, 0))
         leftwall = Wall(RectangleAsset(10, self.height, self.noline, self.black), (0, 0))
+        bottomwall = Wall(RectangleAsset(self.width, 10, self.noline, self.black), (0, self.height - 10))
         
     def step(self):
         self.player1.step()
