@@ -31,7 +31,7 @@ class PacmanGame(App):
         player1 = Pacman((self.width / 2, self.height * 2 / 3))
         
     def step(self):
-        player1.step()
+        self.player1.step()
         
 myapp = PacmanGame()
 myapp.run()
