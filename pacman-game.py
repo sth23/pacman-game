@@ -56,6 +56,11 @@ class PacmanGame(App):
         super().__init__()
         self.player1 = Pacman((self.width / 2, self.height * 2 / 3))
         
+        # Create game board
+        self.black = Color(0, 1)
+        self.noline = LineStyle(0, self.black)
+        topwall = Wall((0,0, RectangleAsset(self.width, 10, self.noline, self.black))
+        
     def step(self):
         self.player1.step()
         
