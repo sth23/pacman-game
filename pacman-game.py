@@ -60,7 +60,7 @@ class PacmanGame(App):
         self.black = Color(0, 1)
         self.noline = LineStyle(0, self.black)
         topwall = Wall(RectangleAsset(self.width, 10, self.noline, self.black), (0, 0))
-        
+        rightwall = Wall(RectangleAsset(10, self.height, self.noline, self.black), (self.width - 10, 0))
         
     def step(self):
         self.player1.step()
