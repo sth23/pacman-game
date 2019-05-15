@@ -70,8 +70,8 @@ class PacmanGame(App):
         super().__init__()
         black = Color(0, 1)
         noline = LineStyle(0, black)
-        bg_asset = RectangleAsset(self.width, self.height, noline, black)
-        bg = Sprite(bg_asset, (0,0))
+        #bg_asset = RectangleAsset(self.width, self.height, noline, black)
+        #bg = Sprite(bg_asset, (0,0))
         
         
         self.player1 = Pacman((self.width / 2, self.height * 2 / 3))
