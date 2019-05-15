@@ -66,7 +66,7 @@ class PacmanGame(App):
         
         self.blocks = RectangleAsset(30, 30, self.noline, self.black)
         for x in range(0,5):
-            Wall(self.blocks, (random.randint(0, self.width), random.randint(0, self.height))
+            Wall(self.blocks, (random.randint(0, self.width), random.randint(0, self.height)))
         
     def step(self):
         self.player1.step()
