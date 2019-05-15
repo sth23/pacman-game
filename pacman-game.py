@@ -83,7 +83,7 @@ class Ghost(Sprite):
             else:
                 self.vy = -self.speed
         
-    def step(self):
+    def step(self)):
         if self.count % 50 == 0:
             print(self.count)
             self.chance = random.randint(0,3)
