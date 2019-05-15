@@ -30,7 +30,7 @@ class Dot(Sprite):
     circ = CircleAsset(5, noline, white)
     
     def __init__(self, position):
-        super().__init__(Dot.circ, position)
+        super().__init__(Dot.circ, position, CircleAsset(5))
         
 class BigDot(Sprite):
     circ = CircleAsset(8, noline, white)
@@ -41,7 +41,7 @@ class BigDot(Sprite):
 class Ghost(Sprite):
     def __init__(self, position, color):
         self.circ = CircleAsset(20, noline, color)
-        super().__init__(self.circ, position)
+        super().__init__(self.circ, position, CircleAsset(20))
         self.vx = 0
         self.vy = 0
         self.speed = 3
@@ -113,7 +113,7 @@ class Pacman(Sprite):
     #mouth_open
     
     def __init__(self, position):
-        super().__init__(Pacman.mouth_closed, position)
+        super().__init__(Pacman.mouth_closed, position, CircleAsset(20))
         self.vx = 0
         self.vy = 0
         self.speed = 3
