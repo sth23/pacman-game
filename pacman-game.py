@@ -164,11 +164,7 @@ class PacmanGame(App):
         self.orangeghost = Ghost((self.width * 4 / 6, self.height - 60), orange)
         self.greenghost = Ghost((self.width * 5 / 6, self.height - 60), green)
         
-        # Create game board
-        topwall = Wall(RectangleAsset(self.width, 10, whiteline, blue), (0, 0))
-        rightwall = Wall(RectangleAsset(10, self.height, whiteline, blue), (self.width - 10, 0))
-        leftwall = Wall(RectangleAsset(10, self.height, whiteline, blue), (0, 0))
-        bottomwall = Wall(RectangleAsset(self.width, 10, whiteline, blue), (0, self.height - 10))
+
         
         # Create grid of walls & dots
         self.blockwidth = 30
@@ -176,10 +172,26 @@ class PacmanGame(App):
         self.numrows = 5
         self.numcolumns = 10
         self.lanewidth = (self.width - 20 - self.numcolumns * self.blockwidth) / (self.numcolumns + 1)
+        
+        self.makeWalls()
+        self.makeBlocks()
+        self.makeDots()
+        
+    
+    def makeWalls(self):        
+        # Create game board
+        topwall = Wall(RectangleAsset(self.width, 10, whiteline, blue), (0, 0))
+        rightwall = Wall(RectangleAsset(10, self.height, whiteline, blue), (self.width - 10, 0))
+        leftwall = Wall(RectangleAsset(10, self.height, whiteline, blue), (0, 0))
+        bottomwall = Wall(RectangleAsset(self.width, 10, whiteline, blue), (0, self.height - 10))
+        
+    def makeBlocks(self):
         # Create block grid
         for x in range(0, self.numcolumns + 1):
             for y in range(0, self.numrows + 1):
                 Wall(self.blocks, (x * self.lanewidth + (x - 1) * self.blockwidth, y * self.lanewidth + (y - 1) * self.blockwidth))
+        
+    def makeDots(self):
         # Create dots
         for x in range(0, self.numcolumns + 2):
             for y in range(0, self.numrows + 2):
