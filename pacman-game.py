@@ -44,7 +44,7 @@ class Ghost(Sprite):
         super().__init__(self.circ, position)
         self.vx = 0
         self.vy = 0
-        self.speed = 2.5
+        self.speed = 3
         self.count = 0
         self.chance = 0
         
@@ -114,7 +114,7 @@ class Pacman(Sprite):
         super().__init__(Pacman.mouth_closed, position)
         self.vx = 0
         self.vy = 0
-        self.speed = 2.5
+        self.speed = 3
         self.gameover = False
         
         # Setup Player Controls
