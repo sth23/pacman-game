@@ -27,7 +27,7 @@ class Wall(Sprite):
         super().__init__(asset, position)
         
 class Dots(Sprite):
-    circ = CircleAsset(5, noline, gray)
+    circ = CircleAsset(5, noline, white)
     
     def __init__(self, position):
         super().__init__(Dots.circ, position)
