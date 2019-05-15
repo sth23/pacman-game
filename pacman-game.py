@@ -65,11 +65,12 @@ class PacmanGame(App):
         bottomwall = Wall(RectangleAsset(self.width, 10, self.noline, self.black), (0, self.height - 10))
         
     def step(self):
+        self.player1.step()
         if self.player1.collidingWithSprites(Wall):
+            self.player1.x -= self.player1.vx
+            self.player1.y -= self.player1.vy
             self.player1.vx = 0
             self.player1.vy = 0
-        self.player1.step()
-        self.player1.step()
         
 myapp = PacmanGame()
 myapp.run()
