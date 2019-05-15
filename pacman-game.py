@@ -238,6 +238,7 @@ class PacmanGame(App):
                 print("Game Over")
             else:
                 self.extralives -= 1
+                print("Extra Lives: " + str(self.extralives))
             
         # Reset board @ end of level
         if self.dotcount == 0:
