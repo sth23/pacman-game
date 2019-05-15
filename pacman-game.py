@@ -176,8 +176,8 @@ class PacmanGame(App):
         self.numrows = 5
         self.numcolumns = 10
         self.lanewidth = (self.width - self.numcolumns * self.blockwidth) / (self.numcolumns + 1)
-        for x in range(0, self.numcolumns):
-            for y in range(0, self.numrows):
+        for x in range(0, self.numcolumns + 1):
+            for y in range(0, self.numrows + 1):
                 Wall(self.blocks, (x * self.lanewidth + (x - 1) * self.blockwidth, 50))
         
     def step(self):
