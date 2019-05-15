@@ -67,6 +67,7 @@ class Ghost(Sprite):
     def hitWall(self):
         self.x -= self.vx
         self.y -= self.vy
+        self.count += 10
         
         if self.vy != 0:
             self.vy = 0
@@ -88,6 +89,7 @@ class Ghost(Sprite):
         self.y -= self.vy
         self.vx = -self.vx
         self.vy = -self.vy
+        self.count += 10
         
     def step(self):
         if self.count % 50 == 0:
