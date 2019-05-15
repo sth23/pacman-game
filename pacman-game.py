@@ -139,9 +139,9 @@ class PacmanGame(App):
         
         # Create ghosts
         self.blueghost = Ghost((random.randint(0, self.width), random.randint(0, self.height)), blue)
-        self.purpleghost = Ghost((random.randint(0, self.width), random.randint(0, self.height)), purple)
-        self.redghost = Ghost((random.randint(0, self.width), random.randint(0, self.height)), red)
-        self.orangeghost = Ghost((random.randint(0, self.width), random.randint(0, self.height)), orange)
+        #self.purpleghost = Ghost((random.randint(0, self.width), random.randint(0, self.height)), purple)
+        #self.redghost = Ghost((random.randint(0, self.width), random.randint(0, self.height)), red)
+        #self.orangeghost = Ghost((random.randint(0, self.width), random.randint(0, self.height)), orange)
         
         # Create game board
         topwall = Wall(RectangleAsset(self.width, 10, whiteline, blue), (0, 0))
@@ -162,12 +162,14 @@ class PacmanGame(App):
         self.player1.step()
         if self.blueghost.collidingWithSprites(Wall):
             self.blueghost.hitWall()
+        """
         if self.purpleghost.collidingWithSprites(Wall):
             self.purpleghost.hitWall()
         if self.redghost.collidingWithSprites(Wall):
             self.redghost.hitWall()
         if self.orangeghost.collidingWithSprites(Wall):
             self.orangeghost.hitWall()
+        """
         if self.player1.collidingWithSprites(Wall):
             self.player1.hitWall()
         for dot in self.player1.collidingWithSprites(Dots):
