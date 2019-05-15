@@ -179,22 +179,26 @@ class PacmanGame(App):
         
     def step(self):
         self.player1.step()
+        
+        # Handle ghosts colliding w/ walls and other ghosts
         for ghost in self.getSpritesbyClass(Ghost):
             if ghost.collidingWithSprites(Ghost):
                 ghost.hitGhost()
+            if ghost.collidingWithSprites(Wall):
+                ghost.hitWall()
             ghost.step()
-        if self.blueghost.collidingWithSprites(Wall):
-            self.blueghost.hitWall()
-        if self.purpleghost.collidingWithSprites(Wall):
-            self.purpleghost.hitWall()
-        if self.redghost.collidingWithSprites(Wall):
-            self.redghost.hitWall()
-        if self.orangeghost.collidingWithSprites(Wall):
-            self.orangeghost.hitWall()
+        
+        # Handle player colliding with walls    
         if self.player1.collidingWithSprites(Wall):
             self.player1.hitWall()
+            
+        # Handle player eating dots
         for dot in self.player1.collidingWithSprites(Dots):
             dot.destroy()
+            
+        # Handle player colliding with ghosts
+        if self.player1.collidingWithSprites(Ghost):
+            self.player1.destroy()
         
 myapp = PacmanGame()
 myapp.run()
