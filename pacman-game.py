@@ -221,6 +221,16 @@ class PacmanGame(App):
             self.player1.gameover = True
             self.player1.vx = 0
             self.player1.vy = 0
+            
+        # Reset board @ end of level
+        if !self.getSpritesbyClass(Dots):
+            self.player1.x = self.width - 30
+            self.player1.y = 15
+            self.player1.vx = 0
+            self.player1.vy = 0
+            self.makeDots()
+            for ghost in self.getSpritesbyClass(Ghost):
+                ghost.speed = ghost.speed + 0.5
         
 myapp = PacmanGame()
 myapp.run()
