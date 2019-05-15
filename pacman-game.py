@@ -48,19 +48,19 @@ class Ghost(Sprite):
         self.count = 0
         self.chance = 0
         
-    def goRight(self, event):
+    def goRight(self):
         self.vx = self.speed
         self.vy = 0
         
-    def goLeft(self, event):
+    def goLeft(self):
         self.vx = -self.speed
         self.vy = 0
     
-    def goUp(self, event):
+    def goUp(self):
         self.vy = -self.speed
         self.vx = 0
         
-    def goDown(self, event):
+    def goDown(self):
         self.vy = self.speed
         self.vx = 0
         
