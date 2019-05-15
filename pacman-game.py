@@ -66,37 +66,40 @@ class Pacman(Sprite):
         self.y += self.vy
         
 class PacmanGame(App):
+    red = Color(0xff0000, 1.0)
+    orange = Color(0xffa500, 1.0)
+    yellow = Color(0xffff00, 1.0)
+    green = Color(0x00ff00, 1.0)
+    blue = Color(0x0000ff, 1.0)
+    purple = Color(0x800080, 1.0)
+    black = Color(0x000000, 1.0)
+    white = Color(0xffffff, 1.0)
+    gray = Color(0x000000, 0.5)
+    noline = LineStyle(0, black)
+    whiteline = LineStyle(1, white)
+    
     def __init__(self):
         super().__init__()
-        red = Color(0xff0000, 1.0)
-        orange = Color(0xffa500, 1.0)
-        yellow = Color(0xffff00, 1.0)
-        green = Color(0x00ff00, 1.0)
-        blue = Color(0x0000ff, 1.0)
-        purple = Color(0x800080, 1.0)
-        black = Color(0x000000, 1.0)
-        white = Color(0xffffff, 1.0)
         noline = LineStyle(0, black)
-        bg_asset = RectangleAsset(self.width, self.height, noline, black)
+        bg_asset = RectangleAsset(self.width, self.height, noline, PacmanGame.black)
         bg = Sprite(bg_asset, (0,0))
         
         
         self.player1 = Pacman((self.width / 2, self.height * 2 / 3))
         
         # Create game board
-        self.noline = LineStyle(0, black)
-        self.whiteline = LineStyle(1, white)
-        topwall = Wall(RectangleAsset(self.width, 10, self.whiteline, self.black), (0, 0))
-        rightwall = Wall(RectangleAsset(10, self.height, self.whiteline, self.black), (self.width - 10, 0))
-        leftwall = Wall(RectangleAsset(10, self.height, self.whiteline, self.black), (0, 0))
-        bottomwall = Wall(RectangleAsset(self.width, 10, self.whiteline, self.black), (0, self.height - 10))
+
+        topwall = Wall(RectangleAsset(self.width, 10, PacmanGame.whiteline, PacmanGame.black), (0, 0))
+        rightwall = Wall(RectangleAsset(10, self.height, PacmanGame.whiteline, PacmanGame.black), (self.width - 10, 0))
+        leftwall = Wall(RectangleAsset(10, self.height, PacmanGame.whiteline, PacmanGame.black), (0, 0))
+        bottomwall = Wall(RectangleAsset(self.width, 10, PacmanGame.whiteline, PacmanGame.black), (0, self.height - 10))
         
         # Randomly place dots (to eat)
         for x in range(0,20):
             Dots((random.randint(0, self.width), random.randint(0, self.height)))
         
         # Randomly place walls
-        self.blocks = RectangleAsset(30, 30, self.whiteline, black)
+        self.blocks = RectangleAsset(30, 30, PacmanGame.whiteline, PacmanGame.black)
         for x in range(0,5):
             Wall(self.blocks, (random.randint(0, self.width), random.randint(0, self.height)))
         
