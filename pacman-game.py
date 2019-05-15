@@ -164,8 +164,8 @@ class PacmanGame(App):
             self.blueghost.hitWall()
         if self.purpleghost.collidingWithSprites(Wall):
             self.purpleghost.hitWall()
-        if self.yellowghost.collidingWithSprites(Wall):
-            self.yellowghost.hitWall()
+        if self.redghost.collidingWithSprites(Wall):
+            self.redghost.hitWall()
         if self.orangeghost.collidingWithSprites(Wall):
             self.orangeghost.hitWall()
         if self.player1.collidingWithSprites(Wall):
