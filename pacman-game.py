@@ -169,7 +169,7 @@ class PacmanGame(App):
         self.redghost = Ghost((self.width * 3 / 6, self.height - 60), red)
         self.orangeghost = Ghost((self.width * 4 / 6, self.height - 60), orange)
         self.greenghost = Ghost((self.width * 5 / 6, self.height - 60), green)
-        
+        self.ghostcount = 1
 
         
         # Create grid of walls & dots
@@ -204,6 +204,13 @@ class PacmanGame(App):
         for x in range(0, self.numcolumns + 2):
             for y in range(0, self.numrows + 2):
                 Dot(((x - 0.5) * self.lanewidth + (x - 1) * self.blockwidth, (y - 0.5) * self.lanewidth + (y - 1) * self.blockwidth))
+                
+    def resetGhosts(self):
+        for ghost in self.getSpritesbyClass(Ghost):
+            ghost.x = self.width * self.ghostcount / 6
+            ghost.y = self.height - 60
+            self.ghostcount += 1
+        self.ghostcount = 1
         
     def step(self):
         self.player1.step()
@@ -233,6 +240,7 @@ class PacmanGame(App):
             self.player1.y = 15
             self.player1.vx = 0
             self.player1.vy = 0
+            self.resetGhosts()
             if self.extralives == 0:
                 self.player1.gameover = True
                 print("Game Over")
@@ -247,6 +255,7 @@ class PacmanGame(App):
             self.player1.vx = 0
             self.player1.vy = 0
             self.makeDots()
+            self.resetGhosts()
             for ghost in self.getSpritesbyClass(Ghost):
                 ghost.speed = ghost.speed + 0.5
         
