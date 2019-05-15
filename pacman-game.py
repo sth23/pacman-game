@@ -233,7 +233,7 @@ class PacmanGame(App):
             self.player1.y = 15
             self.player1.vx = 0
             self.player1.vy = 0
-            if self.extralives != 0:
+            if self.extralives == 0:
                 self.player1.gameover = True
                 print("Game Over")
             else:
