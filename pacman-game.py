@@ -155,7 +155,7 @@ class PacmanGame(App):
         bg = Sprite(bg_asset, (0,0))
         
         # Create player
-        self.player1 = Pacman((self.width / 2 - 20, 15))
+        self.player1 = Pacman((self.width / 2 - 30, 15))
         
         # Create ghosts
         self.blueghost = Ghost((self.width / 6, self.height - 60), blue)
