@@ -91,6 +91,8 @@ class PacmanGame(App):
         self.player1.step()
         if self.player1.collidingWithSprites(Wall):
             self.player1.hitWall()
+        for dot in self.player1.collidingWithSprites(Dots):
+            dot.destroy()
         
 myapp = PacmanGame()
 myapp.run()
