@@ -88,17 +88,17 @@ class PacmanGame(App):
         
         # Create game board
 
-        topwall = Wall(RectangleAsset(self.width, 10, PacmanGame.whiteline, PacmanGame.black), (0, 0))
-        rightwall = Wall(RectangleAsset(10, self.height, PacmanGame.whiteline, PacmanGame.black), (self.width - 10, 0))
-        leftwall = Wall(RectangleAsset(10, self.height, PacmanGame.whiteline, PacmanGame.black), (0, 0))
-        bottomwall = Wall(RectangleAsset(self.width, 10, PacmanGame.whiteline, PacmanGame.black), (0, self.height - 10))
+        topwall = Wall(RectangleAsset(self.width, 10, PacmanGame.whiteline, PacmanGame.blue), (0, 0))
+        rightwall = Wall(RectangleAsset(10, self.height, PacmanGame.whiteline, PacmanGame.blue), (self.width - 10, 0))
+        leftwall = Wall(RectangleAsset(10, self.height, PacmanGame.whiteline, PacmanGame.blue), (0, 0))
+        bottomwall = Wall(RectangleAsset(self.width, 10, PacmanGame.whiteline, PacmanGame.blue), (0, self.height - 10))
         
         # Randomly place dots (to eat)
         for x in range(0,20):
             Dots((random.randint(0, self.width), random.randint(0, self.height)))
         
         # Randomly place walls
-        self.blocks = RectangleAsset(30, 30, PacmanGame.whiteline, PacmanGame.black)
+        self.blocks = RectangleAsset(30, 30, PacmanGame.whiteline, PacmanGame.blue)
         for x in range(0,5):
             Wall(self.blocks, (random.randint(0, self.width), random.randint(0, self.height)))
         
