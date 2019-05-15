@@ -47,6 +47,12 @@ class Pacman(Sprite):
         self.vy = self.speed
         self.vx = 0
         
+    def hitWall(self):
+        self.player1.x -= self.player1.vx
+        self.player1.y -= self.player1.vy
+        self.player1.vx = 0
+        self.player1.vy = 0
+        
     def step(self):
         self.x += self.vx
         self.y += self.vy
@@ -71,10 +77,7 @@ class PacmanGame(App):
     def step(self):
         self.player1.step()
         if self.player1.collidingWithSprites(Wall):
-            self.player1.x -= self.player1.vx
-            self.player1.y -= self.player1.vy
-            self.player1.vx = 0
-            self.player1.vy = 0
+            self.player1.hitWall()
         
 myapp = PacmanGame()
 myapp.run()
