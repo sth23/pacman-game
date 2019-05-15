@@ -84,6 +84,8 @@ class Ghost(Sprite):
                 self.vy = -self.speed
                 
     def hitGhost(self):
+        self.x -= self.vx
+        self.y -= self.vy
         self.vx = -self.vx
         self.vy = -self.vy
         
