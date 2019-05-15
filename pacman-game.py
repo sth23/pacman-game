@@ -236,6 +236,8 @@ class PacmanGame(App):
             if self.extralives != 0:
                 self.player1.gameover = True
                 print("Game Over")
+            else:
+                self.extralives -= 1
             
         # Reset board @ end of level
         if self.dotcount == 0:
