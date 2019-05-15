@@ -178,9 +178,9 @@ class PacmanGame(App):
         self.blocks = RectangleAsset(30, 30, whiteline, blue)
         self.blockcolumns = self.width // 80
         self.blockrows = self.height // 80
-        for x in range(0, self.blockcolumns):
-            for y in range(0, self.blockrows):
-                Wall(self.blocks, (x * 80 + 30, y * 80 + 30))
+        for x in range(0, self.blockcolumns - 1):
+            for y in range(0, self.blockrows - 1):
+                Wall(self.blocks, (x * 80 + 50, y * 80 + 50))
         
     def step(self):
         self.player1.step()
