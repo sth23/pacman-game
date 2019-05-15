@@ -175,7 +175,7 @@ class PacmanGame(App):
         self.blocks = RectangleAsset(self.blockwidth, self.blockwidth, whiteline, blue)
         self.numrows = 5
         self.numcolumns = 10
-        self.lanewidth = 60
+        self.lanewidth = (self.width - self.numcolumns * self.blockwidth) / (self.numcolumns + 1)
         for x in range(0, self.numcolumns):
             for y in range(0, self.numrows):
                 Wall(self.blocks, (x * self.lanewidth + (x - 1) * self.blockwidth, 50))
