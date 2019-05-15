@@ -82,6 +82,7 @@ class Ghost(Sprite):
                 self.goUp()
             else:
                 self.goDown()
+        self.count += 1
                 
         self.x += self.vx
         self.y += self.vy
