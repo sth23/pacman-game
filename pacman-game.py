@@ -222,6 +222,7 @@ class PacmanGame(App):
         for dot in self.player1.collidingWithSprites(Dot):
             dot.destroy()
             self.dotcount -= 1
+            self.score += 10
             
         # Handle player colliding with ghosts
         if self.player1.collidingWithSprites(Ghost):
