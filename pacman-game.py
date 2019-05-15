@@ -180,7 +180,7 @@ class PacmanGame(App):
         self.blockrows = self.height // 80
         for x in range(0, self.blockcolumns):
             for y in range(0, self.blockrows):
-                Wall(self.blocks, (x * 80, y * 80))
+                Wall(self.blocks, (x * 80 + 30, y * 80 + 30))
         
     def step(self):
         self.player1.step()
