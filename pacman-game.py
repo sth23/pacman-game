@@ -84,6 +84,8 @@ class Ghost(Sprite):
                 self.vy = -self.speed
                 
     def hitGhost(self):
+        self.vx = -self.vx
+        self.vy = -self.vy
         
     def step(self):
         if self.count % 50 == 0:
