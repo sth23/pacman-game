@@ -26,13 +26,13 @@ class Wall(Sprite):
     def __init__(self, asset, position):
         super().__init__(asset, position)
         
-class Dots(Sprite):
+class Dot(Sprite):
     circ = CircleAsset(5, noline, white)
     
     def __init__(self, position):
         super().__init__(Dots.circ, position)
         
-class BigDots(Sprite):
+class BigDot(Sprite):
     circ = CircleAsset(8, noline, white)
     
     def __init__(self, position):
@@ -176,9 +176,14 @@ class PacmanGame(App):
         self.numrows = 5
         self.numcolumns = 10
         self.lanewidth = (self.width - self.numcolumns * self.blockwidth) / (self.numcolumns + 1)
+        # Create block grid
         for x in range(0, self.numcolumns + 1):
             for y in range(0, self.numrows + 1):
                 Wall(self.blocks, (x * self.lanewidth + (x - 1) * self.blockwidth, y * self.lanewidth + (y - 1) * self.blockwidth))
+        # Create dots
+        for x in range(0, self.numcolumns + 2):
+            for y in range(0, numrows + 2):
+                Dot(((x - 0.5) * self.lanewidth + (x - 1) * self.blockwidth, 50))
         
     def step(self):
         self.player1.step()
