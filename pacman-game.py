@@ -173,10 +173,10 @@ class PacmanGame(App):
         # Create grid of walls & dots
         self.blocks = RectangleAsset(30, 30, whiteline, blue)
         self.lanewidth = 100
-        self.blockcolumns = self.width // self.lanewidth
-        self.blockrows = self.height // self.lanewidth
+        self.blockcolumns = (self.width - 20) // self.lanewidth
+        self.blockrows = (self.height - 20) // self.lanewidth
         for x in range(0, self.blockcolumns):
-            for y in range(0, self.blockrows - 1):
+            for y in range(0, self.blockrows):
                 Wall(self.blocks, (x * self.lanewidth + 70, y * self.lanewidth + 70))
                 Dots((x * self.lanewidth + 115, y * self.lanewidth + 115))
         
