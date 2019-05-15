@@ -172,7 +172,7 @@ class PacmanGame(App):
         
         # Randomly place dots (to eat)
         for x in range(0,20):
-            Dots((random.randint(0, self.width), random.randint(0, self.height)))
+            
         
         # Randomly place walls
         self.blocks = RectangleAsset(30, 30, whiteline, blue)
@@ -182,6 +182,7 @@ class PacmanGame(App):
         for x in range(0, self.blockcolumns - 1):
             for y in range(0, self.blockrows - 1):
                 Wall(self.blocks, (x * self.lanewidth + 60, y * self.lanewidth + 60))
+                Dots((x * self.lanewidth + 90, y * self.laneweidth + 90
         
     def step(self):
         self.player1.step()
