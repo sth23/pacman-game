@@ -175,7 +175,7 @@ class PacmanGame(App):
         self.blocks = RectangleAsset(self.blockwidth, self.blockwidth, whiteline, blue)
         self.numrows = 5
         self.numcolumns = 10
-        self.lanewidth = (self.width - self.numcolumns * self.blockwidth) / (self.numcolumns + 1)
+        self.lanewidth = (self.width - 20 - self.numcolumns * self.blockwidth) / (self.numcolumns + 1)
         # Create block grid
         for x in range(0, self.numcolumns + 1):
             for y in range(0, self.numrows + 1):
