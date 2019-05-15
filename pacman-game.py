@@ -178,6 +178,7 @@ class PacmanGame(App):
         self.makeWalls()
         self.makeBlocks()
         self.makeDots()
+        self.dotcount = 66
         
     
     def makeWalls(self):        
@@ -195,6 +196,7 @@ class PacmanGame(App):
         
     def makeDots(self):
         # Create dots
+        self.dotcount = 66
         for x in range(0, self.numcolumns + 2):
             for y in range(0, self.numrows + 2):
                 Dot(((x - 0.5) * self.lanewidth + (x - 1) * self.blockwidth, (y - 0.5) * self.lanewidth + (y - 1) * self.blockwidth))
@@ -217,6 +219,7 @@ class PacmanGame(App):
         # Handle player eating dots
         for dot in self.player1.collidingWithSprites(Dot):
             dot.destroy()
+            self.dotcount -= 1
             
         # Handle player colliding with ghosts
         if self.player1.collidingWithSprites(Ghost):
