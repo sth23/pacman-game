@@ -160,7 +160,7 @@ class PacmanGame(App):
         
     def step(self):
         self.player1.step()
-        for ghost in self.getSpritesbyClass(Ghosts):
+        for ghost in self.getSpritesbyClass(Ghost):
             ghost.step()
         if self.blueghost.collidingWithSprites(Wall):
             self.blueghost.hitWall()
