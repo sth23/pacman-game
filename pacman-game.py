@@ -171,13 +171,13 @@ class PacmanGame(App):
         bottomwall = Wall(RectangleAsset(self.width, 10, whiteline, blue), (0, self.height - 10))
         
         # Create grid of walls & dots
-        self.blocks = RectangleAsset(30, 30, whiteline, blue)
-        #self.numrows = 
-        self.lanewidth = 110
-        self.blockcolumns = (self.width - 20) // self.lanewidth
-        self.blockrows = (self.height - 20) // self.lanewidth
-        for x in range(0, self.blockcolumns):
-            for y in range(0, self.blockrows):
+        self.wallwidth = 30
+        self.blocks = RectangleAsset(self.wallwidth, self.wallwidth, whiteline, blue)
+        self.numrows = 5
+        self.numcolumns = 10
+        self.lanewidth = 60
+        for x in range(0, self.numcolumns):
+            for y in range(0, self.numrows):
                 Wall(self.blocks, (x * self.lanewidth + 70, y * self.lanewidth + 70))
                 if x < self.blockcolumns - 1 and y < self.blockrows - 1:
                     Dots((x * self.lanewidth + 135, y * self.lanewidth + 135))
