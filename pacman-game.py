@@ -228,9 +228,14 @@ class PacmanGame(App):
             
         # Handle player colliding with ghosts
         if self.player1.collidingWithSprites(Ghost):
-            self.player1.gameover = True
+            self.player1.x = self.width / 2 - 30
+            self.player1.y = 15
             self.player1.vx = 0
             self.player1.vy = 0
+            if self.extralives != 0:
+                self.player1.gameover = True
+            else:
+                self.
             
         # Reset board @ end of level
         if self.dotcount == 0:
