@@ -179,7 +179,7 @@ class PacmanGame(App):
             for y in range(0, self.blockrows):
                 Wall(self.blocks, (x * self.lanewidth + 70, y * self.lanewidth + 70))
                 if x < self.blockcolumns - 1 and y < self.blockrows - 1:
-                    Dots((x * self.lanewidth + 130, y * self.lanewidth + 130))
+                    Dots((x * self.lanewidth + 135, y * self.lanewidth + 135))
         
     def step(self):
         self.player1.step()
