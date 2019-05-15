@@ -183,7 +183,7 @@ class PacmanGame(App):
         # Create dots
         for x in range(0, self.numcolumns + 2):
             for y in range(0, self.numrows + 2):
-                Dot(((x - 0.5) * self.lanewidth + (x - 1) * self.blockwidth, 50))
+                Dot(((x - 0.5) * self.lanewidth + (x - 1) * self.blockwidth, (y - 0.5) * self.lanewidth + (y - 1) * self.blockwidth)))
         
     def step(self):
         self.player1.step()
