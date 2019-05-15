@@ -44,7 +44,7 @@ class Ghost(Sprite):
         super().__init__(self.circ, position)
         self.vx = 0
         self.vy = 0
-        self.speed = 3
+        self.speed = 2.5
         self.count = 0
         self.chance = 0
         
@@ -225,7 +225,7 @@ class PacmanGame(App):
             self.player1.vy = 0
             
         # Reset board @ end of level
-        if len(self.getSpritesbyClass(Dot)) == 0:
+        if self.dotcount == 0:
             self.player1.x = self.width - 30
             self.player1.y = 15
             self.player1.vx = 0
