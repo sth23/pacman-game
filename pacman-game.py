@@ -68,7 +68,14 @@ class Pacman(Sprite):
 class PacmanGame(App):
     def __init__(self):
         super().__init__()
-        black = Color(0, 1)
+        red = Color(0xff0000, 1.0)
+        orange = Color(0xffa500, 1.0)
+        yellow = Color(0xffff00, 1.0)
+        green = Color(0x00ff00, 1.0)
+        blue = Color(0x0000ff, 1.0)
+        purple = Color(0x800080, 1.0)
+        black = Color(0x000000, 1.0)
+        white = Color(0xffffff, 1.0)
         noline = LineStyle(0, black)
         bg_asset = RectangleAsset(self.width, self.height, noline, black)
         bg = Sprite(bg_asset, (0,0))
@@ -77,9 +84,8 @@ class PacmanGame(App):
         self.player1 = Pacman((self.width / 2, self.height * 2 / 3))
         
         # Create game board
-        self.black = Color(0, 1)
-        self.noline = LineStyle(0, self.black)
-        self.whiteline = LineStyle(1, Color(1, 1))
+        self.noline = LineStyle(0, black)
+        self.whiteline = LineStyle(1, white)
         topwall = Wall(RectangleAsset(self.width, 10, self.whiteline, self.black), (0, 0))
         rightwall = Wall(RectangleAsset(10, self.height, self.whiteline, self.black), (self.width - 10, 0))
         leftwall = Wall(RectangleAsset(10, self.height, self.whiteline, self.black), (0, 0))
@@ -90,7 +96,7 @@ class PacmanGame(App):
             Dots((random.randint(0, self.width), random.randint(0, self.height)))
         
         # Randomly place walls
-        self.blocks = RectangleAsset(30, 30, self.whiteline, self.black)
+        self.blocks = RectangleAsset(30, 30, self.whiteline, black)
         for x in range(0,5):
             Wall(self.blocks, (random.randint(0, self.width), random.randint(0, self.height)))
         
