@@ -199,6 +199,7 @@ class PacmanGame(App):
         # Handle player colliding with ghosts
         if self.player1.collidingWithSprites(Ghost):
             self.player1.destroy()
+            self.quit()
         
 myapp = PacmanGame()
 myapp.run()
