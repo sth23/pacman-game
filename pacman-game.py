@@ -223,7 +223,7 @@ class PacmanGame(App):
             self.player1.vy = 0
             
         # Reset board @ end of level
-        if len(self.getSpritesbyClass(Dots)) == 0:
+        if len(self.getSpritesbyClass(Dot)) == 0:
             self.player1.x = self.width - 30
             self.player1.y = 15
             self.player1.vx = 0
