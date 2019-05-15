@@ -69,6 +69,7 @@ class PacmanGame(App):
             self.player1.vx = 0
             self.player1.vy = 0
         self.player1.step()
+        self.player1.step()
         
 myapp = PacmanGame()
 myapp.run()
