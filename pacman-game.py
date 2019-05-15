@@ -160,6 +160,8 @@ class PacmanGame(App):
         
         # Create player
         self.player1 = Pacman((self.width / 2 - 30, 15))
+        self.score = 0
+        self.extralives = 3
         
         # Create ghosts
         self.blueghost = Ghost((self.width / 6, self.height - 60), blue)
