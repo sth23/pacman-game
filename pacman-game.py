@@ -12,6 +12,14 @@ import random
 class Wall(Sprite):
     def __init__(self, asset, position):
         super().__init__(asset, position)
+        
+class Dots(Sprite):
+    gray = Color(0, 0.5)
+    noline = LineStyle(0, gray)
+    circ = CircleAsset(5, noline, gray)
+    
+    def __init__(self, position):
+        super().__init__(Dots.circ, position)
 
 class Pacman(Sprite):
     yellow = Color(0xffff00, 1.0)
