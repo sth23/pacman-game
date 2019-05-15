@@ -201,7 +201,7 @@ class PacmanGame(App):
             self.player1.hitWall()
             
         # Handle player eating dots
-        for dot in self.player1.collidingWithSprites(Dots):
+        for dot in self.player1.collidingWithSprites(Dot):
             dot.destroy()
             
         # Handle player colliding with ghosts
