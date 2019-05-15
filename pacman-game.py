@@ -158,11 +158,11 @@ class PacmanGame(App):
         self.player1 = Pacman((self.width / 2, 20))
         
         # Create ghosts
-        self.blueghost = Ghost((self.width / 7, self.height - 40), blue)
-        self.purpleghost = Ghost((self.width * 2 / 7, self.height - 40), purple)
-        self.redghost = Ghost((self.width * 3 / 7, self.height - 40), red)
-        self.orangeghost = Ghost((self.width * 4 / 7, self.height - 40), orange)
-        self.greenghost = Ghost((self.width * 5 / 7, self.height - 40), green)
+        self.blueghost = Ghost((self.width / 6, self.height - 60), blue)
+        self.purpleghost = Ghost((self.width * 2 / 6, self.height - 60), purple)
+        self.redghost = Ghost((self.width * 3 / 6, self.height - 60), red)
+        self.orangeghost = Ghost((self.width * 4 / 6, self.height - 60), orange)
+        self.greenghost = Ghost((self.width * 5 / 6, self.height - 60), green)
         
         # Create game board
         topwall = Wall(RectangleAsset(self.width, 10, whiteline, blue), (0, 0))
