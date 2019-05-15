@@ -70,8 +70,8 @@ class PacmanGame(App):
         super().__init__()
         black = Color(0, 1)
         noline = LineStyle(0, black)
-        #bg_asset = RectangleAsset(self.width, self.height, noline, black)
-        #bg = Sprite(bg_asset, (0,0))
+        bg_asset = RectangleAsset(self.width, self.height, noline, black)
+        bg = Sprite(bg_asset, (0,0))
         
         
         self.player1 = Pacman((self.width / 2, self.height * 2 / 3))
@@ -79,17 +79,18 @@ class PacmanGame(App):
         # Create game board
         self.black = Color(0, 1)
         self.noline = LineStyle(0, self.black)
-        topwall = Wall(RectangleAsset(self.width, 10, self.noline, self.black), (0, 0))
-        rightwall = Wall(RectangleAsset(10, self.height, self.noline, self.black), (self.width - 10, 0))
-        leftwall = Wall(RectangleAsset(10, self.height, self.noline, self.black), (0, 0))
-        bottomwall = Wall(RectangleAsset(self.width, 10, self.noline, self.black), (0, self.height - 10))
+        self.whiteline = LineStyle(1, Color(1, 1))
+        topwall = Wall(RectangleAsset(self.width, 10, self.whiteline, self.black), (0, 0))
+        rightwall = Wall(RectangleAsset(10, self.height, self.whiteline, self.black), (self.width - 10, 0))
+        leftwall = Wall(RectangleAsset(10, self.height, self.whiteline, self.black), (0, 0))
+        bottomwall = Wall(RectangleAsset(self.width, 10, self.whiteline, self.black), (0, self.height - 10))
         
         # Randomly place dots (to eat)
         for x in range(0,20):
             Dots((random.randint(0, self.width), random.randint(0, self.height)))
         
         # Randomly place walls
-        self.blocks = RectangleAsset(30, 30, self.noline, self.black)
+        self.blocks = RectangleAsset(30, 30, self.whiteline, self.black)
         for x in range(0,5):
             Wall(self.blocks, (random.randint(0, self.width), random.randint(0, self.height)))
         
