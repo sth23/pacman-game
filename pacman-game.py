@@ -71,7 +71,8 @@ class Ghost(Sprite):
         self.vy = 0
         
     def step(self):
-        if self.count%50000 == 0:
+        if self.count % 500 == 0:
+            print(self.count)
             self.chance = random.randint(0,3)
             if self.chance == 0:
                 self.goRight()
