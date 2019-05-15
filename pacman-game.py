@@ -30,13 +30,13 @@ class Dot(Sprite):
     circ = CircleAsset(5, noline, white)
     
     def __init__(self, position):
-        super().__init__(Dots.circ, position)
+        super().__init__(Dot.circ, position)
         
 class BigDot(Sprite):
     circ = CircleAsset(8, noline, white)
     
     def __init__(self, position):
-        super().__init__(BigDots.circ, position)
+        super().__init__(BigDot.circ, position)
         
 class Ghost(Sprite):
     def __init__(self, position, color):
