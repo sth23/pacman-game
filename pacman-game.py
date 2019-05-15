@@ -48,10 +48,10 @@ class Pacman(Sprite):
         self.vx = 0
         
     def hitWall(self):
-        self.player1.x -= self.player1.vx
-        self.player1.y -= self.player1.vy
-        self.player1.vx = 0
-        self.player1.vy = 0
+        self.x -= self.vx
+        self.y -= self.vy
+        self.vx = 0
+        self.vy = 0
         
     def step(self):
         self.x += self.vx
