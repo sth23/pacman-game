@@ -31,6 +31,12 @@ class Dots(Sprite):
     
     def __init__(self, position):
         super().__init__(Dots.circ, position)
+        
+class BigDots(Sprite):
+    circ = CircleAsset(8, noline, white)
+    
+    def __init__(self, position):
+        super().__init__(BigDots.circ, position)
 
 class Pacman(Sprite):
     mouth_closed = CircleAsset(20, noline, yellow)
