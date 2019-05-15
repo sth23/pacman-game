@@ -78,6 +78,11 @@ class PacmanGame(App):
         leftwall = Wall(RectangleAsset(10, self.height, self.noline, self.black), (0, 0))
         bottomwall = Wall(RectangleAsset(self.width, 10, self.noline, self.black), (0, self.height - 10))
         
+        # Randomly place dots (to eat)
+        for x in range(0,20):
+            Dots((random.randint(0, self.width), random.randint(0, self.height)))
+        
+        # Randomly place walls
         self.blocks = RectangleAsset(30, 30, self.noline, self.black)
         for x in range(0,5):
             Wall(self.blocks, (random.randint(0, self.width), random.randint(0, self.height)))
