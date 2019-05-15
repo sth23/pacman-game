@@ -18,7 +18,7 @@ blue = Color(0x0000ff, 1.0)
 purple = Color(0x800080, 1.0)
 black = Color(0x000000, 1.0)
 white = Color(0xffffff, 1.0)
-gray = Color(0x000000, 0.5)
+gray = Color(0x999999, 0.5)
 noline = LineStyle(0, black)
 whiteline = LineStyle(1, white)
 
@@ -75,18 +75,15 @@ class Pacman(Sprite):
         self.y += self.vy
         
 class PacmanGame(App):
-
-    
     def __init__(self):
         super().__init__()
         bg_asset = RectangleAsset(self.width, self.height, noline, black)
         bg = Sprite(bg_asset, (0,0))
         
-        
+        # Create player
         self.player1 = Pacman((self.width / 2, self.height * 2 / 3))
         
         # Create game board
-
         topwall = Wall(RectangleAsset(self.width, 10, whiteline, blue), (0, 0))
         rightwall = Wall(RectangleAsset(10, self.height, whiteline, blue), (self.width - 10, 0))
         leftwall = Wall(RectangleAsset(10, self.height, whiteline, blue), (0, 0))
