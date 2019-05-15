@@ -176,11 +176,12 @@ class PacmanGame(App):
         
         # Randomly place walls
         self.blocks = RectangleAsset(30, 30, whiteline, blue)
-        self.blockcolumns = self.width // 80
-        self.blockrows = self.height // 80
+        self.lanewidth = 90
+        self.blockcolumns = self.width // self.lanewidth
+        self.blockrows = self.height // self.lanewidth
         for x in range(0, self.blockcolumns - 1):
             for y in range(0, self.blockrows - 1):
-                Wall(self.blocks, (x * 80 + 60, y * 80 + 60))
+                Wall(self.blocks, (x * self.lanewidth + 60, y * self.lanewidth + 60))
         
     def step(self):
         self.player1.step()
