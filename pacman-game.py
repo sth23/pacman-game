@@ -235,7 +235,7 @@ class PacmanGame(App):
             print("Score: " + str(self.score))
             
         # Handle player colliding with ghosts
-        if self.player1.collidingWithSprites(Ghost) & self.gameover == False:
+        if self.player1.collidingWithSprites(Ghost) & self.player1.gameover == False:
             self.player1.x = self.width / 2 - 30
             self.player1.y = 15
             self.player1.vx = 0
