@@ -37,6 +37,54 @@ class BigDots(Sprite):
     
     def __init__(self, position):
         super().__init__(BigDots.circ, position)
+        
+class Ghost(Sprite):
+    def __init__(self, position, color):
+        self.circ = CircleAsset(20, noline, color)
+        super().__init__(self.circ, position)
+        self.vx = 0
+        self.vy = 0
+        self.speed = 2.5
+        self.count = 0
+        self.chance = 0
+        
+    def goRight(self, event):
+        self.vx = self.speed
+        self.vy = 0
+        
+    def goLeft(self, event):
+        self.vx = -self.speed
+        self.vy = 0
+    
+    def goUp(self, event):
+        self.vy = -self.speed
+        self.vx = 0
+        
+    def goDown(self, event):
+        self.vy = self.speed
+        self.vx = 0
+        
+    def hitWall(self):
+        self.x -= self.vx
+        self.y -= self.vy
+        self.vx = 0
+        self.vy = 0
+        
+    def step(self):
+        if self.count % 50 == 0:
+            self.chance = random.randint(0,3)
+            if self.chance == 0:
+                self.goRight()
+            elif self.chance == 1:
+                self.goLeft()
+            elif self.chance == 2:
+                self.goUp()
+            else:
+                self.goDown()
+                
+        self.x += self.vx
+        self.y += self.vy
+
 
 class Pacman(Sprite):
     mouth_closed = CircleAsset(20, noline, yellow)
@@ -88,6 +136,12 @@ class PacmanGame(App):
         
         # Create player
         self.player1 = Pacman((self.width / 2, self.height * 2 / 3))
+        
+        # Create ghosts
+        self.blueghost = Ghost((0, random.randint(0, self.width)), blue)
+        self.purpleghost = Ghost((0, random.randint(0, self.width)), purple)
+        self.redghost = Ghost((0, random.randint(0, self.width)), red)
+        self.orangeghost = Ghost((0, random.randint(0, self.width)), orange)
         
         # Create game board
         topwall = Wall(RectangleAsset(self.width, 10, whiteline, blue), (0, 0))
