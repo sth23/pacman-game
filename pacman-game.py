@@ -89,7 +89,6 @@ class Ghost(Sprite):
         
     def step(self):
         if self.count % 50 == 0:
-            print(self.count)
             self.chance = random.randint(0,3)
             if self.chance == 0:
                 self.goRight()
@@ -163,6 +162,7 @@ class PacmanGame(App):
         self.purpleghost = Ghost((random.randint(20, self.width - 20), random.randint(20, self.height - 20)), purple)
         self.redghost = Ghost((random.randint(20, self.width - 20), random.randint(20, self.height - 20)), red)
         self.orangeghost = Ghost((random.randint(20, self.width - 20), random.randint(20, self.height - 20)), orange)
+        self.greenghost = Ghost((random.randint(20, self.width - 20), random.randint(20, self.height - 20)), green)
         
         # Create game board
         topwall = Wall(RectangleAsset(self.width, 10, whiteline, blue), (0, 0))
