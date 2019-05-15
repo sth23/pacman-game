@@ -176,8 +176,8 @@ class PacmanGame(App):
         self.blockcolumns = self.width // self.lanewidth
         self.blockrows = self.height // self.lanewidth
         for x in range(0, self.blockcolumns):
-            for y in range(0, self.blockrows):
-                Wall(self.blocks, (x * self.lanewidth + 60, y * self.lanewidth + 60))
+            for y in range(0, self.blockrows - 1):
+                Wall(self.blocks, (x * self.lanewidth + 80, y * self.lanewidth + 80))
                 Dots((x * self.lanewidth + 115, y * self.lanewidth + 115))
         
     def step(self):
