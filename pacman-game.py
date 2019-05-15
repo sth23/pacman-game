@@ -114,7 +114,7 @@ class Pacman(Sprite):
         super().__init__(Pacman.mouth_closed, position)
         self.vx = 0
         self.vy = 0
-        self.speed = 3
+        self.speed = 5
         self.gameover = False
         
         # Setup Player Controls
