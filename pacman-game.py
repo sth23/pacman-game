@@ -67,8 +67,21 @@ class Ghost(Sprite):
     def hitWall(self):
         self.x -= self.vx
         self.y -= self.vy
-        self.vx = 0
-        self.vy = 0
+        
+        if self.vy != 0:
+            self.vy = 0
+            self.chance = random.randint(0,2)
+            if self.chance == 0:
+                self.vx = self.speed
+            else:
+                self.vx = -self.speed
+        else:
+            self.vx = 0
+            self.chance = random.randint(0,2)
+            if self.chance == 0:
+                self.vy = self.speed
+            else:
+                self.vy = -self.speed
         
     def step(self):
         if self.count % 50 == 0:
