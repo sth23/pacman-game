@@ -114,6 +114,7 @@ class Pacman(Sprite):
         self.vx = 0
         self.vy = 0
         self.speed = 2.5
+        self.gameover = False
         
         # Setup Player Controls
         PacmanGame.listenKeyEvent("keydown", "right arrow", self.goRight)
@@ -144,8 +145,9 @@ class Pacman(Sprite):
         self.vy = 0
         
     def step(self):
-        self.x += self.vx
-        self.y += self.vy
+        if self.gameover == False:
+            self.x += self.vx
+            self.y += self.vy
         
 class PacmanGame(App):
     def __init__(self):
@@ -198,6 +200,7 @@ class PacmanGame(App):
             
         # Handle player colliding with ghosts
         if self.player1.collidingWithSprites(Ghost):
+            self.player1.gameover = True
             self.player1.vx = 0
             self.player1.vy = 0
         
