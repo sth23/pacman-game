@@ -80,8 +80,7 @@ class PacmanGame(App):
     
     def __init__(self):
         super().__init__()
-        noline = LineStyle(0, black)
-        bg_asset = RectangleAsset(self.width, self.height, noline, PacmanGame.black)
+        bg_asset = RectangleAsset(self.width, self.height, PacmanGame.noline, PacmanGame.black)
         bg = Sprite(bg_asset, (0,0))
         
         
