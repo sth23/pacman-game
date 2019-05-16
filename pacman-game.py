@@ -220,54 +220,54 @@ class PacmanGame(App):
         self.paused = not self.paused
         
     def step(self):
-        #if self.paused == False:
-        self.player1.step()
-        
-        # Handle ghosts colliding w/ walls and other ghosts
-        for ghost in self.getSpritesbyClass(Ghost):
-            if ghost.collidingWithSprites(Ghost):
-                ghost.hitGhost()
-            if ghost.collidingWithSprites(Wall):
-                ghost.hitWall()
-            ghost.step()
-        
-        # Handle player colliding with walls    
-        if self.player1.collidingWithSprites(Wall):
-            self.player1.hitWall()
+        if self.paused == False:
+            self.player1.step()
             
-        # Handle player eating dots
-        for dot in self.player1.collidingWithSprites(Dot):
-            dot.destroy()
-            self.dotcount -= 1
-            self.score += 10
-            print("Score: " + str(self.score))
+            # Handle ghosts colliding w/ walls and other ghosts
+            for ghost in self.getSpritesbyClass(Ghost):
+                if ghost.collidingWithSprites(Ghost):
+                    ghost.hitGhost()
+                if ghost.collidingWithSprites(Wall):
+                    ghost.hitWall()
+                ghost.step()
             
-        # Handle player colliding with ghosts
-        if self.player1.collidingWithSprites(Ghost):
-            if self.player1.gameover == False:
+            # Handle player colliding with walls    
+            if self.player1.collidingWithSprites(Wall):
+                self.player1.hitWall()
+                
+            # Handle player eating dots
+            for dot in self.player1.collidingWithSprites(Dot):
+                dot.destroy()
+                self.dotcount -= 1
+                self.score += 10
+                print("Score: " + str(self.score))
+                
+            # Handle player colliding with ghosts
+            if self.player1.collidingWithSprites(Ghost):
+                if self.player1.gameover == False:
+                    self.player1.x = self.width / 2 - 30
+                    self.player1.y = 15
+                    self.player1.vx = 0
+                    self.player1.vy = 0
+                    self.resetGhosts()
+                    if self.extralives == 0:
+                        self.player1.gameover = True
+                        print("Game Over")
+                    else:
+                        self.extralives -= 1
+                        print("Extra Lives: " + str(self.extralives))
+                
+            # Reset board @ end of level
+            if self.dotcount == 0:
                 self.player1.x = self.width / 2 - 30
                 self.player1.y = 15
                 self.player1.vx = 0
                 self.player1.vy = 0
+                self.makeDots()
                 self.resetGhosts()
-                if self.extralives == 0:
-                    self.player1.gameover = True
-                    print("Game Over")
-                else:
-                    self.extralives -= 1
-                    print("Extra Lives: " + str(self.extralives))
-            
-        # Reset board @ end of level
-        if self.dotcount == 0:
-            self.player1.x = self.width / 2 - 30
-            self.player1.y = 15
-            self.player1.vx = 0
-            self.player1.vy = 0
-            self.makeDots()
-            self.resetGhosts()
-            for ghost in self.getSpritesbyClass(Ghost):
-                ghost.speed = ghost.speed + 0.5
-            self.paused = not self.paused
+                for ghost in self.getSpritesbyClass(Ghost):
+                    ghost.speed = ghost.speed + 0.5
+                self.paused = not self.paused
         
 myapp = PacmanGame()
 myapp.run()
