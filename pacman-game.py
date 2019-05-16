@@ -255,6 +255,7 @@ class PacmanGame(App):
                         print("Game Over")
                     else:
                         self.extralives -= 1
+                        self.paused = not self.paused
                         print("Extra Lives: " + str(self.extralives))
                 
             # Reset board @ end of level
