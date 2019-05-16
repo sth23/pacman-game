@@ -162,6 +162,9 @@ class PacmanGame(App):
         self.paused = True
         PacmanGame.listenKeyEvent("keydown", "space", self.pause)
         
+        print(self.width)
+        print(self.height)
+        
         # Create player
         self.player1 = Pacman((self.width / 2 - 30, 15))
         self.score = 0
