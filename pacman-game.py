@@ -251,8 +251,7 @@ class PacmanGame(App):
                     self.player1.vy = 0
                     self.resetGhosts()
                     if self.extralives == 0:
-                        #self.player1.gameover = True
-                        self.player1.destroy()
+                        self.player1.gameover = True
                         print("Game Over")
                     else:
                         self.extralives -= 1
