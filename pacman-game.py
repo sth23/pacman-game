@@ -107,7 +107,7 @@ class Ghost(Sprite):
         self.x += self.vx
         self.y += self.vy
 
-def PacMouth(Sprite):
+class PacMouth(Sprite):
     def __init__(self, x, y, vx, vy, radius):
         self.x = x
         self.y = y
