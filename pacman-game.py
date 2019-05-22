@@ -118,7 +118,7 @@ class PacMouth(Sprite):
         
     def step(self):
         if self.vx > 0:
-            self.rotation = math.pi
+            self.rotation = 0
         elif self.vx < 0:
             self.rotation = math.pi * 3 / 2
         elif self.vy > 0:
