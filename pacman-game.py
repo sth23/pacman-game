@@ -191,7 +191,7 @@ class PacmanGame(App):
         print(self.height)
         
         # Create player
-        self.player1 = Pacman((self.width / 2 - 30, 25))
+        self.player1 = Pacman((self.width / 2 - 30, 35))
         self.score = 0
         self.extralives = 3
         
