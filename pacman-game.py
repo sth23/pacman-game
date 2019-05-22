@@ -189,7 +189,7 @@ class Pacman(Sprite):
 class PacmanGame(App):
     def __init__(self):
         super().__init__()
-        bg_asset = RectangleAsset(self.width, self.height, noline, white)
+        bg_asset = RectangleAsset(self.width, self.height, noline, black)
         bg = Sprite(bg_asset, (0,0))
         
         # Variable to handle pausing / unpausing
