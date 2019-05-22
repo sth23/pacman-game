@@ -109,15 +109,13 @@ class Ghost(Sprite):
 
 class PacMouth(Sprite):
     def __init__(self, x, y, vx, vy, radius):
-        self.x = x
-        self.y = y
         self.vx = vx
         self.vy = vy
         self.radius = radius
         self.fycenter = 0.5
         self.rotation = math.pi / 2
         self.poly = PolygonAsset([(0,0), (self.radius, self.radius / 2), (self.radius, -self.radius / 2)], noline, black)
-        super().__init__(self.poly, (self.x, self.y))
+        super().__init__(self.poly, (x, y))
         
     def step(self):
         if self.vx > 0:
