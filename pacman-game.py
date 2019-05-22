@@ -120,12 +120,20 @@ class PacMouth(Sprite):
     def step(self):
         if self.vx > 0:
             self.rotation = math.pi / 2
+            self.fxcenter = 0
+            self.fycenter = 0.5
         elif self.vx < 0:
             self.rotation = math.pi * 3 / 2
+            self.fxcenter = 0
+            self.fycenter = 0.5
         elif self.vy > 0:
             self.rotation = math.pi
+            self.fxcenter = 0.5
+            self.fycenter = 0
         else:
             self.rotation = 0
+            self.fxcenter = 0.5
+            self.fycenter = 0
 
 class Pacman(Sprite):
     def __init__(self, position):
