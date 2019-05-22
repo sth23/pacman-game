@@ -5,7 +5,7 @@ Credit: Tutorials
 Assignment: Create an old-school Pacman game
 """
 
-from ggame import App, RectangleAsset, CircleAsset, LineAsset, ImageAsset, Frame, Sprite, LineStyle, Color
+from ggame import App, RectangleAsset, CircleAsset, PolygonAsset, LineAsset, ImageAsset, Frame, Sprite, LineStyle, Color
 import math
 import random
 
@@ -107,17 +107,27 @@ class Ghost(Sprite):
         self.x += self.vx
         self.y += self.vy
 
+def PacMouth(Sprite):
+    def __init__(self, x, y, vx, vy, radius):
+        self.x = x
+        self.y = y
+        self.vx = vx
+        self.vy = vy
+        self.radius
+        self.fycenter = 0.5
+        super().__init__((self.x, self.y)
 
 class Pacman(Sprite):
-    mouth_closed = CircleAsset(20, noline, yellow)
-    #mouth_open
-    
     def __init__(self, position):
-        super().__init__(Pacman.mouth_closed, position, CircleAsset(20))
+        self.radius = 20
+        self.mouth_closed = CircleAsset(self.radius, noline, yellow)
+        super().__init__(Pacman.mouth_closed, position, CircleAsset(self.radius))
         self.vx = 0
         self.vy = 0
         self.speed = 3
         self.gameover = False
+        
+        self.mouth = PacMouth(self.x, self.y, self.vx, self.vy)
         
         # Setup Player Controls
         PacmanGame.listenKeyEvent("keydown", "right arrow", self.goRight)
