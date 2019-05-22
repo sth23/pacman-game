@@ -132,7 +132,7 @@ class PacMouth(Sprite):
             self.fycenter = 0
         else:
             self.rotation = math.pi / 2
-            self.fxcenter = 0.5
+            self.fxcenter = 0.25
             self.fycenter = 1
             
 class Pacman(Sprite):
