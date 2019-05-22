@@ -131,8 +131,8 @@ def PacMouth(Sprite):
 class Pacman(Sprite):
     def __init__(self, position):
         self.radius = 20
-        self.mouth_closed = CircleAsset(self.radius, noline, yellow)
-        super().__init__(Pacman.mouth_closed, position, CircleAsset(self.radius))
+        self.circ = CircleAsset(self.radius, noline, yellow)
+        super().__init__(self.circ, position, CircleAsset(self.radius))
         self.vx = 0
         self.vy = 0
         self.speed = 3
