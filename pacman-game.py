@@ -113,9 +113,20 @@ def PacMouth(Sprite):
         self.y = y
         self.vx = vx
         self.vy = vy
-        self.radius
+        self.radius = radius
         self.fycenter = 0.5
-        super().__init__((self.x, self.y)
+        self.rotation = math.pi / 2
+        self.poly = PolygonAsset([(0,0), (self.radius, self.radius / 2), (self.radius, -self.radius / 2)], noline, black)
+        
+    def step(self):
+        if self.vx > 0:
+            self.rotation = math.pi / 2
+        elif self.vx < 0:
+            self.rotation = math.pi * 3 / 2
+        elif self.vy > 0:
+            self.rotation = math.pi
+        else:
+            self.rotation = 0
 
 class Pacman(Sprite):
     def __init__(self, position):
@@ -127,7 +138,7 @@ class Pacman(Sprite):
         self.speed = 3
         self.gameover = False
         
-        self.mouth = PacMouth(self.x, self.y, self.vx, self.vy)
+        self.mouth = PacMouth(self.x, self.y, self.vx, self.vy, self.radius)
         
         # Setup Player Controls
         PacmanGame.listenKeyEvent("keydown", "right arrow", self.goRight)
@@ -161,6 +172,11 @@ class Pacman(Sprite):
         if self.gameover == False:
             self.x += self.vx
             self.y += self.vy
+            self.mouth.x = self.x
+            self.mouth.y = self.y
+            self.mouth.vx = self.vx
+            self.mouth.vy = self.vy
+            self.mouth.step()
         
 class PacmanGame(App):
     def __init__(self):
