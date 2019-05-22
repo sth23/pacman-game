@@ -117,6 +117,7 @@ def PacMouth(Sprite):
         self.fycenter = 0.5
         self.rotation = math.pi / 2
         self.poly = PolygonAsset([(0,0), (self.radius, self.radius / 2), (self.radius, -self.radius / 2)], noline, black)
+        super().__init__(self.poly, (self.x, self.y))
         
     def step(self):
         if self.vx > 0:
