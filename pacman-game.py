@@ -136,7 +136,7 @@ class Pacman(Sprite):
         self.speed = 3
         self.gameover = False
         
-        self.mouth = PacMouth(self.x, self.y, self.vx, self.vy, self.radius)
+        self.mouth = PacMouth(self.x + self.radius / 2, self.y + self.radius / 2, self.vx, self.vy, self.radius)
         
         # Setup Player Controls
         PacmanGame.listenKeyEvent("keydown", "right arrow", self.goRight)
