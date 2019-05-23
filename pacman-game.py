@@ -214,8 +214,8 @@ class PacmanGame(App):
         self.blockwidth = 30
         self.lanewidth = 75
         self.blocks = RectangleAsset(self.blockwidth, self.blockwidth, whiteline, blue)
-        self.numrows = int((self.width - 20 - self.height) / (self.blockwidth + self.lanewidth))
-        self.numcolumns = int((self.width - 20 - 75) / (self.blockwidth + self.lanewidth))
+        self.numrows = int((self.height - 20 - self.lanewidth) / (self.blockwidth + self.lanewidth))
+        self.numcolumns = int((self.width - 20 - self.lanewidth) / (self.blockwidth + self.lanewidth))
 
         print(self.lanewidth)
         
