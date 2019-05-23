@@ -126,7 +126,7 @@ class PacMouth(Sprite):
             self.rotation = math.pi
         elif self.vy > 0:
             self.rotation = math.pi * 3 / 2
-        else:
+        elif self.vy < 0:
             self.rotation = math.pi / 2
             
 class Pacman(Sprite):
