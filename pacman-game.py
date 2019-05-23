@@ -131,8 +131,8 @@ class PacMouth(Sprite):
             self.rotation = math.pi / 2
             
 class Pacman(Sprite):
-    def __init__(self, position):
-        self.radius = 20
+    def __init__(self, position, radius):
+        self.radius = radius
         self.circ = CircleAsset(self.radius, noline, yellow)
         super().__init__(self.circ, position, CircleAsset(self.radius))
         self.vx = 0
@@ -195,7 +195,7 @@ class PacmanGame(App):
         print(self.height)
         
         # Create player
-        self.player1 = Pacman((self.width / 2 - 30, 35))
+        self.player1 = Pacman((self.width / 2 - 30, 35), 20)
         self.score = 0
         self.extralives = 3
         
