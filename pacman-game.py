@@ -216,6 +216,7 @@ class PacmanGame(App):
         self.numrows = 5
         self.numcolumns = 10
         self.lanewidth = (self.width - 20 - self.numcolumns * self.blockwidth) / (self.numcolumns + 1)
+        print(self.lanewidth)
         
         self.makeWalls()
         self.makeBlocks()
