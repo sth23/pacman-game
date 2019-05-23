@@ -234,7 +234,7 @@ class PacmanGame(App):
         # Create block grid
         for x in range(0, self.numcolumns + 1):
             for y in range(0, self.numrows + 1):
-                Wall(self.blocks, (10 + self.lanewidth * (x + 1) + self.blockwidth * (x - 1), 20))
+                Wall(self.blocks, (10 + self.lanewidth * (x + 1) + self.blockwidth * (x + 1), 20))
                 #Wall(self.blocks, (x * self.lanewidth + (x - 1) * self.blockwidth, y * self.lanewidth + (y - 1) * self.blockwidth))
         
     def makeDots(self):
