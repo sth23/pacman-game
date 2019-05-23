@@ -123,6 +123,7 @@ class PacMouth(Sprite):
     def step(self):
         self.count += 1
         self.asset = self.poly[self.count % len(self.poly)]
+        print(self.count % len(self.poly))
         
         if self.vx > 0:
             self.rotation = 0
