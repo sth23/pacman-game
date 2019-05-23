@@ -212,10 +212,11 @@ class PacmanGame(App):
         
         # Create grid of walls & dots
         self.blockwidth = 30
+        self.lanewidth = 75
         self.blocks = RectangleAsset(self.blockwidth, self.blockwidth, whiteline, blue)
         self.numrows = 5
-        self.numcolumns = 10
-        self.lanewidth = 50 # (self.width - 20 - self.numcolumns * self.blockwidth) / (self.numcolumns + 1)
+        self.numcolumns = int((self.width - 20 - 75) / (self.blockwidth + self.lanewidth))
+
         print(self.lanewidth)
         
         self.makeWalls()
