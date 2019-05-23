@@ -112,6 +112,7 @@ class PacMouth(Sprite):
         self.vx = vx
         self.vy = vy
         self.radius = radius
+        self.count = 0
         self.poly = [None] * int(self.radius * 3 / 4)
         for x in range(0,int(self.radius * 3 / 4)):
             self.poly[x] = PolygonAsset([(0,0), (self.radius, self.radius * 3 / 4 - x), (self.radius, -self.radius * 3 / 4 - x)], noline, black)
@@ -120,7 +121,8 @@ class PacMouth(Sprite):
         self.fycenter = 0.5
         
     def step(self):
-        
+        self.count += 1
+        self.asset = self.poly[self.count % len(self.poly)]
         
         if self.vx > 0:
             self.rotation = 0
