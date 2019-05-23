@@ -220,7 +220,7 @@ class PacmanGame(App):
         self.makeWalls()
         self.makeBlocks()
         self.makeDots()
-        self.dotcount = 66
+        self.dotcount = (self.numrows + 1) * (self.numcolumns + 1)
         
     
     def makeWalls(self):        
