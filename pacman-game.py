@@ -278,7 +278,7 @@ class PacmanGame(App):
             if self.player1.collidingWithSprites(Ghost):
                 if self.player1.gameover == False:
                     self.player1.x = self.width / 2 - 30
-                    self.player1.y = 15
+                    self.player1.y = 35
                     self.player1.vx = 0
                     self.player1.vy = 0
                     self.resetGhosts()
