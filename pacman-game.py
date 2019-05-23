@@ -293,7 +293,7 @@ class PacmanGame(App):
             # Reset board @ end of level
             if self.dotcount == 0:
                 self.player1.x = self.width / 2 - 30
-                self.player1.y = 15
+                self.player1.y = 35
                 self.player1.vx = 0
                 self.player1.vy = 0
                 self.makeDots()
