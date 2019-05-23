@@ -216,8 +216,6 @@ class PacmanGame(App):
         self.blocks = RectangleAsset(self.blockwidth, self.blockwidth, whiteline, blue)
         self.numrows = int((self.height - 20 - self.lanewidth) / (self.blockwidth + self.lanewidth))
         self.numcolumns = int((self.width - 20 - self.lanewidth) / (self.blockwidth + self.lanewidth))
-
-        print(self.lanewidth)
         
         self.makeWalls()
         self.makeBlocks()
@@ -236,7 +234,8 @@ class PacmanGame(App):
         # Create block grid
         for x in range(0, self.numcolumns + 1):
             for y in range(0, self.numrows + 1):
-                Wall(self.blocks, (x * self.lanewidth + (x - 1) * self.blockwidth, y * self.lanewidth + (y - 1) * self.blockwidth))
+                Wall(self.blocks, (x + 10 + self.lanewidth * (x + 1) + self.blockwidth * x, 20))
+                #Wall(self.blocks, (x * self.lanewidth + (x - 1) * self.blockwidth, y * self.lanewidth + (y - 1) * self.blockwidth))
         
     def makeDots(self):
         # Create dots
