@@ -118,6 +118,9 @@ class PacMouth(Sprite):
         self.fycenter = 0.5
         
     def step(self):
+        self.radius -= 1
+        
+        
         if self.vx > 0:
             self.rotation = 0
         elif self.vx < 0:
