@@ -216,6 +216,8 @@ class PacmanGame(App):
         self.blocks = RectangleAsset(self.blockwidth, self.blockwidth, whiteline, blue)
         self.numrows = int((self.height - 20 - self.lanewidth) / (self.blockwidth + self.lanewidth))
         self.numcolumns = int((self.width - 20 - self.lanewidth) / (self.blockwidth + self.lanewidth))
+        # Need to recalculate lane width after figuring out numrows and numcolumns...
+        # Fix number of rows and columns?  Vary radius, lanewidth, etc...
         
         self.makeWalls()
         self.makeBlocks()
