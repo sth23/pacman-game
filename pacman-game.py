@@ -116,7 +116,7 @@ class PacMouth(Sprite):
         self.poly = [None] * int(self.radius * 3 / 4)
         for x in range(0,int(self.radius * 3 / 4)):
             self.poly[x] = PolygonAsset([(0,0), (self.radius, self.radius * 3 / 4 - x), (self.radius, -self.radius * 3 / 4 - x)], noline, black)
-        print(self.poly[10])
+            print(int(self.radius * 3 / 4))
         super().__init__(self.poly[0], (x, y))
         self.rotation = 0
         self.fycenter = 0.5
