@@ -39,9 +39,9 @@ class BigDot(Sprite):
         super().__init__(BigDot.circ, position)
         
 class Ghost(Sprite):
-    def __init__(self, position, color):
-        self.circ = CircleAsset(20, noline, color)
-        super().__init__(self.circ, position, CircleAsset(20))
+    def __init__(self, position, color, radius):
+        self.circ = CircleAsset(radius, noline, color)
+        super().__init__(self.circ, position, CircleAsset(radius))
         self.vx = 0
         self.vy = 0
         self.speed = 3
@@ -208,11 +208,11 @@ class PacmanGame(App):
         self.extralives = 3
         
         # Create ghosts
-        self.blueghost = Ghost((self.width / 6, self.height - 60), blue)
-        self.purpleghost = Ghost((self.width * 2 / 6, self.height - 60), purple)
-        self.redghost = Ghost((self.width * 3 / 6, self.height - 60), red)
-        self.orangeghost = Ghost((self.width * 4 / 6, self.height - 60), orange)
-        self.greenghost = Ghost((self.width * 5 / 6, self.height - 60), green)
+        self.blueghost = Ghost((self.width / 6, self.height - 60), blue, self.pacradius)
+        self.purpleghost = Ghost((self.width * 2 / 6, self.height - 60), purple, self.pacradius)
+        self.redghost = Ghost((self.width * 3 / 6, self.height - 60), red, self.pacradius)
+        self.orangeghost = Ghost((self.width * 4 / 6, self.height - 60), orange, self.pacradius)
+        self.greenghost = Ghost((self.width * 5 / 6, self.height - 60), green, self.pacradius)
         self.ghostcount = 1
         
         self.makeWalls()
