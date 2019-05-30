@@ -195,8 +195,8 @@ class PacmanGame(App):
         self.wallwidth = 10
         self.numcolumns = 10
         self.numrows = 5
-        self.blockwidth = 30
-        self.lanewidth = 75
+        self.blockwidth = self.width / 40
+        self.lanewidth = (self.width - self.wallwidth * 2 - self.blockwidth * 10) / 11
         self.blocks = RectangleAsset(self.blockwidth, self.blockwidth, whiteline, blue)
         # Need to recalculate lane width after figuring out numrows and numcolumns...
         # Fix number of rows and columns?  Vary radius, lanewidth, etc...
