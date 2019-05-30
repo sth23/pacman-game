@@ -192,7 +192,7 @@ class PacmanGame(App):
         PacmanGame.listenKeyEvent("keydown", "space", self.pause)
         
         # Create grid of walls & dots
-        self.wallwidth = 10
+        self.wallwidth = 15
         self.numcolumns = 10
         self.numrows = 5
         self.blockwidth = 30
