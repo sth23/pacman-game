@@ -200,7 +200,7 @@ class PacmanGame(App):
         self.laneheight = (self.height - self.wallwidth * 2 - self.blockwidth * self.numrows) / (self.numrows + 1)
         self.blocks = RectangleAsset(self.blockwidth, self.blockwidth, whiteline, blue)
         
-        self.pacradius = ((self.lanewidth + self.laneheight) / 2) * 3 / 4
+        self.pacradius = ((self.lanewidth + self.laneheight) / 2) / 2
         
         # Create player
         self.player1 = Pacman((self.width / 2 - 30, 35), self.pacradius)
