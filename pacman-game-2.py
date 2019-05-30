@@ -199,8 +199,6 @@ class PacmanGame(App):
         self.numrows = round((self.height - self.wallwidth * 2 - self.lanewidth) / (self.blockwidth + self.lanewidth))
         self.laneheight = (self.height - self.wallwidth * 2 - self.blockwidth * self.numrows) / (self.numrows + 1)
         self.blocks = RectangleAsset(self.blockwidth, self.blockwidth, whiteline, blue)
-        # Need to recalculate lane width after figuring out numrows and numcolumns...
-        # Fix number of rows and columns?  Vary radius, lanewidth, etc...
         
         self.pacradius = 20
         
@@ -235,14 +233,14 @@ class PacmanGame(App):
         for x in range(0, self.numcolumns + 1):
             for y in range(0, self.numrows + 1):
                 #Wall(self.blocks, (10 + self.lanewidth * (x + 1) + self.blockwidth * x, 20))
-                Wall(self.blocks, (x * self.lanewidth + (x - 1) * self.blockwidth, y * self.lanewidth + (y - 1) * self.blockwidth))
+                Wall(self.blocks, (x * self.lanewidth + (x - 1) * self.blockwidth, y * self.laneheight + (y - 1) * self.blockwidth))
         
     def makeDots(self):
         # Create dots
         self.dotcount = 66
         for x in range(0, self.numcolumns + 2):
             for y in range(0, self.numrows + 2):
-                Dot(((x - 0.5) * self.lanewidth + (x - 1) * self.blockwidth, (y - 0.5) * self.lanewidth + (y - 1) * self.blockwidth))
+                Dot(((x - 0.5) * self.lanewidth + (x - 1) * self.blockwidth, (y - 0.5) * self.laneheight + (y - 1) * self.blockwidth))
                 
     def resetGhosts(self):
         for ghost in self.getSpritesbyClass(Ghost):
