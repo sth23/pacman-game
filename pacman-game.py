@@ -212,10 +212,10 @@ class PacmanGame(App):
         
         # Create grid of walls & dots
         self.blockwidth = 30
-        self.lanewidth = 75
+        lanewidth = 75
         self.blocks = RectangleAsset(self.blockwidth, self.blockwidth, whiteline, blue)
-        self.numrows = int((self.height - 20 - self.lanewidth) / (self.blockwidth + self.lanewidth))
-        self.numcolumns = int((self.width - 20 - self.lanewidth) / (self.blockwidth + self.lanewidth))
+        self.numrows = 6
+        self.numcolumns = 10
         # Need to recalculate lane width after figuring out numrows and numcolumns...
         # Fix number of rows and columns?  Vary radius, lanewidth, etc...
         
