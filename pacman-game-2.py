@@ -191,10 +191,17 @@ class PacmanGame(App):
         self.paused = True
         PacmanGame.listenKeyEvent("keydown", "space", self.pause)
         
-        self.pacradius = 20
+        # Create grid of walls & dots
+        self.wallwidth = 10
+        self.numcolumns = 10
+        self.numrows = 5
+        self.blockwidth = 30
+        self.lanewidth = 75
+        self.blocks = RectangleAsset(self.blockwidth, self.blockwidth, whiteline, blue)
+        # Need to recalculate lane width after figuring out numrows and numcolumns...
+        # Fix number of rows and columns?  Vary radius, lanewidth, etc...
         
-        print(self.width)
-        print(self.height)
+        self.pacradius = 20
         
         # Create player
         self.player1 = Pacman((self.width / 2 - 30, 35), self.pacradius)
@@ -208,16 +215,6 @@ class PacmanGame(App):
         self.orangeghost = Ghost((self.width * 4 / 6, self.height - 60), orange)
         self.greenghost = Ghost((self.width * 5 / 6, self.height - 60), green)
         self.ghostcount = 1
-
-        
-        # Create grid of walls & dots
-        self.numcolumns = 10
-        self.numrows = 5
-        self.blockwidth = 30
-        self.lanewidth = 75
-        self.blocks = RectangleAsset(self.blockwidth, self.blockwidth, whiteline, blue)
-        # Need to recalculate lane width after figuring out numrows and numcolumns...
-        # Fix number of rows and columns?  Vary radius, lanewidth, etc...
         
         self.makeWalls()
         self.makeBlocks()
@@ -227,10 +224,10 @@ class PacmanGame(App):
     
     def makeWalls(self):        
         # Create game board
-        topwall = Wall(RectangleAsset(self.width, 10, whiteline, blue), (0, 0))
-        rightwall = Wall(RectangleAsset(10, self.height, whiteline, blue), (self.width - 10, 0))
-        leftwall = Wall(RectangleAsset(10, self.height, whiteline, blue), (0, 0))
-        bottomwall = Wall(RectangleAsset(self.width, 10, whiteline, blue), (0, self.height - 10))
+        topwall = Wall(RectangleAsset(self.width, self.wallwidth, whiteline, blue), (0, 0))
+        rightwall = Wall(RectangleAsset(self.wallwidth, self.height, whiteline, blue), (self.width - self.wallwidth, 0))
+        leftwall = Wall(RectangleAsset(self.wallwidth, self.height, whiteline, blue), (0, 0))
+        bottomwall = Wall(RectangleAsset(self.width, self.wallwidth, whiteline, blue), (0, self.height - self.wallwidth))
         
     def makeBlocks(self):
         # Create block grid
