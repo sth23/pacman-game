@@ -111,7 +111,7 @@ class PacMouth(Sprite):
     def __init__(self, x, y, vx, vy, radius):
         self.vx = vx
         self.vy = vy
-        self.radius = radius
+        self.radius = radius + 1
         self.count = 0
         self.poly = [None] * int(self.radius * 3 / 4)
         for x in range(0,int(self.radius * 3 / 4)):
